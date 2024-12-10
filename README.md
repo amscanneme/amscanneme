@@ -1,6 +1,6 @@
-[![Build and publish the container image](https://github.com/sgofferj/tak-feeder-gdacs/actions/workflows/actions.yml/badge.svg)](https://github.com/sgofferj/tak-feeder-gdacs/actions/workflows/actions.yml)
+[![Build and publish the container image](https://github.com/sgofferj/amscanneme/actions/workflows/actions.yml/badge.svg)](https://github.com/sgofferj/amscanneme/actions/workflows/actions.yml)
 
-# tak-feeder-gdacs
+# amscanneme
 Feed current GDACS disaster data into your TAK server
 
 (C) 2023 Stefan Gofferje
@@ -38,12 +38,12 @@ These are the server-issued certificate and key files. Before using, the passwor
 ## Container use
 First, get your certificate and key and copy them to a suitable folder which needs to be added as a volume to the container.
 ### Image
-The image is built for AMD64 and ARM64 and pushed to ghcr.io: *ghcr.io/sgofferj/tak-feeder-gdacs:latest*
+The image is built for AMD64 and ARM64 and pushed to ghcr.io: *ghcr.io/sgofferj/amscanneme:latest*
 ### Docker
 First, rename .env.example to .env and edit according to your needs \
 Create and start the container:
 ```
-docker run -d --env-file .env -v <path-to-certificate-directory>:/certs:ro --name tak-feeder-gdacs --restart always ghcr.io/sgofferj/tak-feeder-gdacs:latest
+docker run -d --env-file .env -v <path-to-certificate-directory>:/certs:ro --name amscanneme --restart always ghcr.io/sgofferj/amscanneme:latest
 ```
 
 ### Docker compose
@@ -53,7 +53,7 @@ version: '2.0'
 
 services:
   gdacs:
-    image: ghcr.io/sgofferj/tak-feeder-gdacs:latest
+    image: ghcr.io/sgofferj/amscanneme:latest
     restart: always
     networks:
       - default
